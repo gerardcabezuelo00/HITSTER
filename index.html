@@ -1,20 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>HITSTER Casero</title>
+<meta charset="UTF-8">
+<title>HITSTER</title>
 </head>
 <body>
 
-<h1>HITSTER Casero</h1>
+<h1>HITSTER</h1>
 
-<button onclick="document.getElementById('audio').play()">
-▶ Reproducir
-</button>
+<p id="codigo"></p>
 
-<audio id="audio">
-    <source src="001.mp3" type="audio/mpeg">
-</audio>
+<button onclick="reproducir()">▶ Reproducir</button>
+
+<script>
+const canciones = {
+  "001": "spotify:track:7J1uxwnxfQLu4APicE5Rnj"
+};
+
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
+
+document.getElementById("codigo").innerText =
+"Tarjeta: " + id;
+
+function reproducir() {
+  alert("Canción asociada: " + canciones[id]);
+}
+</script>
 
 </body>
 </html>
