@@ -29,7 +29,11 @@ fetch("songs.json")
 });
 
 function reproducir() {
-    alert("URI Spotify: " + cancion);
+    const trackId = cancion.replace("spotify:track:", "");
+    window.open(
+      "https://open.spotify.com/track/" + trackId,
+      "_blank"
+    );
 }
 </script>
 
