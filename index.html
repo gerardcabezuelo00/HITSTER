@@ -10,22 +10,12 @@
 
 <p id="codigo"></p>
 
-<button onclick="reproducir()">▶ Reproducir</button>
-
 <script>
-const canciones = {
-  "001": "spotify:track:7J1uxwnxfQLu4APicE5Rnj"
-};
-
 const params = new URLSearchParams(window.location.search);
-const id = params.get("id");
+const id = params.get("id") || "SIN ID";
 
 document.getElementById("codigo").innerText =
-"Tarjeta: " + id;
-
-function reproducir() {
-  alert("Canción asociada: " + canciones[id]);
-}
+"Carta: " + id;
 </script>
 
 </body>
