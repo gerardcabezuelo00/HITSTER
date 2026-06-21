@@ -10,12 +10,27 @@
 
 <p id="codigo"></p>
 
+<button onclick="reproducir()">Reproducir</button>
+
 <script>
+let cancion = "";
+
 const params = new URLSearchParams(window.location.search);
-const id = params.get("id") || "SIN ID";
+const id = params.get("id") || "001";
 
 document.getElementById("codigo").innerText =
 "Carta: " + id;
+
+fetch("songs.json")
+.then(r => r.json())
+.then(data => {
+    cancion = data[id];
+    console.log("Canción:", cancion);
+});
+
+function reproducir() {
+    alert("URI Spotify: " + cancion);
+}
 </script>
 
 </body>
